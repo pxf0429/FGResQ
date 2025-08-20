@@ -56,18 +56,20 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                Xiangfei Sheng<sup>1,*,</sup></span>
-                <span class="author-block">
-                  Xiaofeng Pan<sup>1,*</sup>,</span>
-                  <span class="author-block">
-                    Zhichao Yang<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    Pengfei Chen<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    Leida Li<sup>1,†</sup>
-                  </span>
+                <a href="https://github.com/sxfly99" target="_blank">Xiangfei Sheng</a><sup>1,*,</sup>
+              </span>
+              <span class="author-block">
+                <a href="https://github.com/pxf0429" target="_blank">Xiaofeng Pan</a><sup>1,*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://github.com/yzc-ippl" target="_blank">Zhichao Yang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://faculty.xidian.edu.cn/cpf/" target="_blank">Pengfei Chen</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://web.xidian.edu.cn/ldli/" target="_blank">Leida Li</a><sup>1,†</sup>
+              </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
@@ -119,16 +121,7 @@
 
 
 <!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="static/images/FGResQ.png" alt="FGResQ model architecture"/>
-      <h2 class="subtitle has-text-centered">
-        <b>FG-ResQ</b> leverages a dual-branch architecture to effectively capture both global semantic features and local degradation artifacts, leading to more accurate and human-aligned quality predictions for restored images.
-      </h2>
-    </div>
-  </div>
-</section>
+
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
@@ -141,12 +134,89 @@
           <p>
           Recent years have witnessed remarkable achievements in perceptual image restoration (IR), creating an urgent demand for accurate image quality assessment (IQA), which is essential for both performance comparison and algorithm optimization. Unfortunately, the existing IQA metrics exhibit inherent weakness for IR task, particularly when distinguishing fine-grained quality differences among restored images. To address this dilemma, we contribute the first-of-its-kind fine-grained image quality assessment dataset for image restoration, termed <b>FGRestore</b>, comprising 18,408 restored images across six common IR tasks. Beyond conventional scalar quality scores, FGRestore was also annotated with 30,886 fine-grained pairwise preferences. Based on FGRestore, a comprehensive benchmark was conducted on the existing IQA metrics, which reveal significant inconsistencies between score-based IQA evaluations and the fine-grained restoration quality. Motivated by these findings, we further propose  <b>FGResQ</b>, a new IQA model specifically designed for image restoration, which features both coarse-grained score regression and fine-grained quality ranking. Extensive experiments and comparisons demonstrate that FGResQ significantly outperforms state-of-the-art IQA metrics. Data and code will be publicly available.
           </p>
+          <section class="hero teaser">
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+                <img src="static/images/fig2_01.png" alt="FGResQ model architecture"/>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
   </div>
 </section>
 <!-- End paper abstract -->
+
+<!-- FGResQ Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">FGResQ</h2>
+        <div class="content has-text-justified">
+          <p>
+            Based on FGRestore, we propose FGResQ, a new fine-grained image quality assessment model for perceptual image restoration evaluation. FGResQ consists of two main components: (a) Degradation-aware Feature Learning that incorporates restoration task knowledge to enable unified evaluation across multiple IR tasks, and (b) Dual-branch Quality Prediction that simultaneously handles both coarse-grained score regression and fine-grained pairwise ranking.
+          </p>
+          <img src="static/images/FGResQ.png" alt="FGResQ Framework" style="max-width:100%; margin:2em auto; display:block;"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</section>
+<!--End BibTex citation -->
+  <!-- Performance Comparison Table -->
+  <section class="section" id="Experiments">
+    <div class="container is-max-desktop content" style="text-align:center;">
+      <h2 class="title" style="text-align:center;">Experiments</h2>
+      <p style="text-align:center;">Performance comparison on FGRestore dataset across different IR tasks. "-" indicates no reference images available.</p>
+      <div style="overflow-x:auto; width:100%; text-align:center;">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="font-size:0.85em; vertical-align:middle; min-width:1800px; margin-left:auto; margin-right:auto;">
+    <thead>
+      <tr>
+        <th rowspan="2">Type</th>
+        <th rowspan="2">Method</th>
+        <th rowspan="2">Pub.</th>
+        <th colspan="3">Deblurring</th>
+        <th colspan="3">Denoising</th>
+        <th colspan="3">Deraining</th>
+        <th colspan="3">Dehazing</th>
+        <th colspan="3">MixtureRestoration</th>
+        <th colspan="3">SuperResolution</th>
+        <th colspan="3">Average</th>
+      </tr>
+      <tr>
+        <th>SRCC</th><th>PLCC</th><th>ACC</th>
+        <th>SRCC</th><th>PLCC</th><th>ACC</th>
+        <th>SRCC</th><th>PLCC</th><th>ACC</th>
+        <th>SRCC</th><th>PLCC</th><th>ACC</th>
+        <th>SRCC</th><th>PLCC</th><th>ACC</th>
+        <th>SRCC</th><th>PLCC</th><th>ACC</th>
+        <th>SRCC</th><th>PLCC</th><th>ACC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="4"><b>FR</b></td><td>PSNR</td><td>-</td><td>0.187</td><td>0.167</td><td>0.634</td><td>0.487</td><td>0.482</td><td>0.775</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0.280</td><td>0.248</td><td>0.643</td><td>0.296</td><td>0.303</td><td>0.624</td><td>0.313</td><td>0.300</td><td>0.669</td></tr>
+      <tr><td>SSIM</td><td>TIP'04</td><td>0.441</td><td>0.348</td><td>0.695</td><td>0.642</td><td>0.652</td><td><b>0.789</b></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0.421</td><td>0.379</td><td>0.684</td><td>0.351</td><td>0.361</td><td>0.641</td><td>0.464</td><td>0.435</td><td>0.702</td></tr>
+      <tr><td>LPIPS</td><td>CVPR'18</td><td>0.776</td><td>0.700</td><td>0.755</td><td>0.673</td><td>0.680</td><td>0.765</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0.466</td><td>0.475</td><td>0.658</td><td>0.448</td><td>0.460</td><td>0.666</td><td>0.591</td><td>0.579</td><td>0.711</td></tr>
+      <tr><td>DISTS</td><td>TPAMI'20</td><td><u>0.907</u></td><td><u>0.901</u></td><td><u>0.845</u></td><td>0.679</td><td>0.672</td><td>0.739</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0.495</td><td>0.464</td><td>0.644</td><td>0.482</td><td>0.488</td><td>0.658</td><td>0.640</td><td>0.631</td><td><u>0.721</u></td></tr>
+      <tr><td rowspan="9"><b>NR</b></td><td>NIQE</td><td>SPL'12</td><td>0.382</td><td>0.410</td><td>0.529</td><td>0.240</td><td>0.151</td><td>0.564</td><td>0.030</td><td>0.057</td><td>0.694</td><td>0.036</td><td>0.063</td><td>0.446</td><td>0.041</td><td>0.027</td><td>0.541</td><td>0.176</td><td>0.072</td><td>0.503</td><td>0.151</td><td>0.130</td><td>0.546</td></tr>
+      <tr><td>BRISQUE</td><td>TIP'12</td><td>0.354</td><td>0.354</td><td>0.555</td><td>0.254</td><td>0.114</td><td>0.569</td><td>0.112</td><td>0.102</td><td>0.603</td><td>0.132</td><td>0.088</td><td>0.436</td><td>0.201</td><td>0.064</td><td>0.575</td><td>0.142</td><td>0.040</td><td>0.514</td><td>0.199</td><td>0.127</td><td>0.542</td></tr>
+      <tr><td>DB-CNN</td><td>TCSVT'22</td><td>0.788</td><td>0.786</td><td>0.688</td><td>0.478</td><td>0.431</td><td>0.611</td><td>0.243</td><td>0.259</td><td>0.437</td><td>0.643</td><td>0.645</td><td>0.524</td><td>0.415</td><td>0.460</td><td>0.614</td><td>0.459</td><td>0.454</td><td>0.643</td><td>0.504</td><td>0.506</td><td>0.586</td></tr>
+      <tr><td>HyperIQA</td><td>CVPR'25</td><td>0.871</td><td>0.887</td><td>0.402</td><td>0.605</td><td>0.625</td><td>0.675</td><td>0.264</td><td>0.294</td><td>0.484</td><td>0.643</td><td>0.674</td><td>0.409</td><td>0.523</td><td>0.535</td><td>0.499</td><td>0.437</td><td>0.433</td><td>0.538</td><td>0.557</td><td>0.574</td><td>0.501</td></tr>
+      <tr><td>CLIP-IQA</td><td>AAAI'23</td><td>0.867</td><td>0.785</td><td>0.765</td><td>0.474</td><td>0.440</td><td>0.625</td><td>0.241</td><td>0.221</td><td>0.349</td><td>0.547</td><td>0.499</td><td>0.546</td><td>0.302</td><td>0.300</td><td>0.580</td><td>0.244</td><td>0.186</td><td>0.571</td><td>0.446</td><td>0.405</td><td>0.573</td></tr>
+      <tr><td>Q-Align</td><td>ICML'24</td><td>0.767</td><td>0.804</td><td>0.795</td><td>0.676</td><td>0.687</td><td>0.731</td><td>0.433</td><td>0.421</td><td>0.455</td><td>0.715</td><td>0.765</td><td>0.584</td><td>0.569</td><td>0.571</td><td>0.658</td><td>0.376</td><td>0.366</td><td>0.662</td><td>0.589</td><td>0.603</td><td>0.648</td></tr>
+      <tr><td>DeQA-Score</td><td>CVPR'25</td><td>0.815</td><td>0.843</td><td>0.819</td><td><u>0.754</u></td><td><u>0.771</u></td><td><u>0.778</u></td><td><b>0.507</b></td><td><b>0.576</b></td><td>0.426</td><td><u>0.762</u></td><td><u>0.803</u></td><td><u>0.644</u></td><td><u>0.669</u></td><td><u>0.679</u></td><td><u>0.697</u></td><td><b>0.561</b></td><td><b>0.573</b></td><td><u>0.718</u></td><td><u>0.678</u></td><td><u>0.707</u></td><td>0.680</td></tr>
+      <tr><td>Compare2Score</td><td>NeurIPS'24</td><td>0.769</td><td>0.813</td><td>0.757</td><td>0.661</td><td>0.679</td><td>0.687</td><td>0.074</td><td>0.108</td><td><b>0.790</b></td><td>0.334</td><td>0.381</td><td>0.436</td><td>0.494</td><td>0.519</td><td>0.635</td><td>0.317</td><td>0.315</td><td>0.607</td><td>0.441</td><td>0.469</td><td>0.652</td></tr>
+      <tr><td><b>FGResQ</b></td><td>-</td><td><b>0.926</b></td><td><b>0.910</b></td><td><b>0.873</b></td><td><b>0.759</b></td><td><b>0.777</b></td><td>0.760</td><td><u>0.496</u></td><td><u>0.518</u></td><td><u>0.778</u></td><td><b>0.821</b></td><td><b>0.854</b></td><td><b>0.669</b></td><td><b>0.698</b></td><td><b>0.706</b></td><td><b>0.713</b></td><td><u>0.521</u></td><td><u>0.536</u></td><td><b>0.721</b></td><td><b>0.703</b></td><td><b>0.717</b></td><td><b>0.752</b></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.85em; margin-top:0.5em;">Underline indicates runner-up, bold indicates best.</p>
+    </div>
+  </section>
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
@@ -159,10 +229,6 @@
   year    = {2024}
 }</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
-
-
   <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
