@@ -13,20 +13,14 @@
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
+  <style>
+    .carousel-container {
+      overflow: hidden;
+    }
+  </style>
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans|Noto+Sans|Castoro&display=swap"
   rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -81,7 +75,7 @@
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV_ID>.pdf" target="_blank"
+                        <a href="https://arxiv.org/pdf/2508.14475.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -103,7 +97,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV_ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2508.14475" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -147,6 +141,85 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+<!-- Preliminary Validation Analysis Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Preliminary Validation Analysis</h2>
+        <div class="content has-text-justified">
+          <p>
+            In image restoration tasks, both algorithm comparison and optimization frequently involve evaluating images with subtle quality differences. Algorithm comparison requires distinguishing between restoration results with marginal quality differences, while parameter optimization involves incremental quality changes that demand sensitive assessment methods to identify optimal configurations. To investigate whether existing IQA methods can objectively capture fine-grained quality differences in IR task, we conduct a comprehensive computational analysis on established IQA datasets. Specifically, we evaluate state-of-the-art IQA methods to assess their fine-grained discrimination capabilities.
+          </p>
+          <div style="overflow-x:auto; width:100%; margin-top:1.5em;">
+            <p class="has-text-centered">Performance comparison across different MOS ranges on PIPAL dataset.</p>
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="font-size:0.85em; vertical-align:middle;">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Method</th>
+                  <th>[0.0,0.2)<br>SRCC</th>
+                  <th>[0.2,0.4)<br>SRCC</th>
+                  <th>[0.4,0.6)<br>SRCC</th>
+                  <th>[0.6,0.8)<br>SRCC</th>
+                  <th>[0.8,1.0]<br>SRCC</th>
+                  <th>Overall<br>SRCC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4" style="vertical-align: middle;"><b>FR</b></td>
+                  <td>PSNR</td><td>0.323</td><td>0.082</td><td>0.209</td><td>0.161</td><td>0.072</td><td>0.422</td>
+                </tr>
+                <tr>
+                  <td>SSIM</td><td>0.293</td><td>0.108</td><td>0.258</td><td>0.254</td><td>0.049</td><td>0.530</td>
+                </tr>
+                <tr>
+                  <td>LPIPS</td><td>-0.034</td><td>0.077</td><td>0.325</td><td>0.287</td><td>0.124</td><td>0.612</td>
+                </tr>
+                <tr>
+                  <td>DISTS</td><td>0.168</td><td>0.159</td><td>0.310</td><td>0.242</td><td>0.165</td><td>0.585</td>
+                </tr>
+                <tr>
+                  <td rowspan="10" style="vertical-align: middle;"><b>NR</b></td>
+                  <td>NIQE</td><td>-0.126</td><td>-0.002</td><td>0.107</td><td>0.001</td><td>0.080</td><td>0.153</td>
+                </tr>
+                <tr>
+                  <td>IL-NIQE</td><td>-0.235</td><td>-0.098</td><td>0.126</td><td>0.128</td><td>0.054</td><td>0.289</td>
+                </tr>
+                <tr>
+                  <td>BRISQUE</td><td>-0.142</td><td>0.025</td><td>0.125</td><td>0.035</td><td>0.131</td><td>0.185</td>
+                </tr>
+                <tr>
+                  <td>DB-CNN</td><td>-0.157</td><td>0.321</td><td>0.353</td><td>0.330</td><td>-0.016</td><td>0.636</td>
+                </tr>
+                <tr>
+                  <td>HyperIQA</td><td>0.100</td><td>0.274</td><td>0.314</td><td>0.292</td><td>0.032</td><td>0.584</td>
+                </tr>
+                <tr>
+                  <td>MetaIQA</td><td>0.037</td><td>0.160</td><td>0.204</td><td>0.174</td><td>-0.101</td><td>0.423</td>
+                </tr>
+                <tr>
+                  <td>LIQE</td><td>-0.232</td><td>0.053</td><td>0.175</td><td>0.299</td><td>0.107</td><td>0.479</td>
+                </tr>
+                <tr>
+                  <td>CLIP-IQA</td><td>-0.152</td><td>0.211</td><td>0.238</td><td>0.293</td><td>0.071</td><td>0.530</td>
+                </tr>
+                <tr>
+                  <td>Q-Align</td><td>0.230</td><td>0.301</td><td>0.337</td><td>0.213</td><td>0.178</td><td>0.418</td>
+                </tr>
+                <tr>
+                  <td>DeQA-Score</td><td>0.568</td><td>0.676</td><td>0.623</td><td>0.516</td><td>0.350</td><td>0.747</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FGResQ Section -->
 <section class="section hero is-light">
@@ -218,6 +291,77 @@
     </div>
   </section>
 
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Fine-grained Examples</h2>
+    <div class="carousel-container" style="max-width: 720px; margin: auto;">
+      <div id="carousel-fine-grained" class="carousel">
+        <div class="item">
+          <p class="has-text-centered">Deblurring</p>
+          <img src="static/sup_figs/example_deblur_01.png" alt="Deblur Example">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Dehazing</p>
+          <img src="static/sup_figs/example_dehazing_01.png" alt="Dehazing Example">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Denoising</p>
+          <img src="static/sup_figs/example_denoise_01.png" alt="Denoise Example">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Deraining</p>
+          <img src="static/sup_figs/example_derain_01.png" alt="Derain Example">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Mixture Restoration</p>
+          <img src="static/sup_figs/example_mix_01.png" alt="Mix Restoration Example">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Super-Resolution</p>
+          <img src="static/sup_figs/example_sr_01.png" alt="Super Resolution Example">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Qualitative Analysis -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Qualitative Analysis</h2>
+    <div class="carousel-container" style="max-width: 720px; margin: auto;">
+      <div id="carousel-qualitative" class="carousel">
+        <div class="item">
+          <p class="has-text-centered">Deblurring</p>
+          <img src="static/sup_figs/quanli_deblur_01.png" alt="Deblur Qualitative">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Dehazing</p>
+          <img src="static/sup_figs/quanli_dehaze_01.png" alt="Dehaze Qualitative">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Denoising</p>
+          <img src="static/sup_figs/quanli_denoise_01.png" alt="Denoise Qualitative">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Deraining</p>
+          <img src="static/sup_figs/quanli_derain_01.png" alt="Derain Qualitative">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Mixture Restoration</p>
+          <img src="static/sup_figs/quanli_mix_01.png" alt="Mix Restoration Qualitative">
+        </div>
+        <div class="item">
+          <p class="has-text-centered">Super-Resolution</p>
+          <img src="static/sup_figs/quanli_sr_01.png" alt="Super Resolution Qualitative">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
@@ -225,7 +369,7 @@
       <pre><code>@article{sheng2024fgresq,
   title   = {Fine-grained Image Quality Assessment for Perceptual Image Restoration},
   author  = {Sheng, Xiangfei and Pan, Xiaofeng and Yang, Zhichao and Chen, Pengfei and Li, Leida},
-  journal = {arXiv preprint arXiv:<ARXIV_ID>},
+  journal = {arXiv preprint arXiv:2508.14475},
   year    = {2024}
 }</code></pre>
     </div>

@@ -18,4 +18,21 @@ $(document).ready(function() {
 	
     bulmaSlider.attach();
 
+  // Initialize all carousels
+  bulmaCarousel.attach('#carousel-fine-grained', {
+    slidesToScroll: 1,
+    slidesToShow: 1, // Show 1 image at a time
+    infinite: true,
+    autoplay: true,
+    loop: true,
+  });
+  bulmaCarousel.attach('#carousel-qualitative', {
+    slidesToScroll: 1,
+    slidesToShow: 1, // Show 1 image at a time
+    infinite: true,
+    autoplay: true,
+    loop: true,
+  });
+
+  // Check if there are any navbar burgers
 })
